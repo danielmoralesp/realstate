@@ -4,4 +4,6 @@ Rails.application.routes.draw do
     get 'index', to: 'home#index'
 
     devise_for :users
+
+    resources :promoters
 end

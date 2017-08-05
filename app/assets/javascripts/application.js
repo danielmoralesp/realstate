@@ -13,4 +13,16 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap-sprockets
+//= require owl.carousel.js
+//= require owl.carousel.min.js
+//= require aos.js
+//= require jquery.magnific-popup.js
+//= require jquery.magnific-popup.min.js
+//= require jquery.sticky-sidebar-scroll.min.js
+//= require photoswipe-ui-default.js
+//= require photoswipe-ui-default.min.js
+//= require photoswipe.js
+//= require photoswipe.min.js
+//= require progressbar.min.js
 //= require_tree .

@@ -52,15 +52,20 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="add-listing visible-md visible-lg"><a href="add_listing.html"><span><i class="fa fa-plus" aria-hidden="true"></i> Add listing</span></a></li>
-        <li class="signin">
-          <%= link_to "Signin", new_user_session_path %>
-          </li>
 
-        <li class="register">
-          <%= link_to new_user_registration_path  do %>
-              <span>Register</span>
-          <% end %>
-        </li>
+        <% if user_signed_in? %>
+          <li class=""><%= link_to 'Salir', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li class="signin">
+            <%= link_to "Signin", new_user_session_path %>
+          </li>
+          <li class="register">
+            <%= link_to new_user_registration_path  do %>
+                <span>Register</span>
+            <% end %>
+          </li>
+        <% end %>
+        
 
       </ul>
     </div>

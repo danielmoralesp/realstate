@@ -40,6 +40,8 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem "font-awesome-rails"
 # devise
 gem 'devise'
+# images gem
+gem "paperclip", "~> 4.3"
 
 
 

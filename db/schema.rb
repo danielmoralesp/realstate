@@ -10,17 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170828232726) do
+ActiveRecord::Schema.define(version: 20170829020928) do
 
   create_table "promoters", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "phone"
-    t.string   "photo"
     t.string   "address"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.integer  "status"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
     t.index ["user_id"], name: "index_promoters_on_user_id"
   end
 

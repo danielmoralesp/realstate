@@ -10,7 +10,7 @@ class PromotersController < ApplicationController
 	    @promoter.user = current_user
 
 	    if @promoter.save
-	      flash[:notice] = 'Ha sido creado con exito. La administración revisara su solicitud, y pronto le dara una respuesta, este atento!'
+	      flash[:notice] = 'Ha sido creado con exito. La administración revisara su solicitud, y pronto le dará una respuesta, este atento!'
 	      redirect_to root_path
 	    else
 	      flash[:alert] = 'Algo fallo, el promotor no ha sido creado con éxito'

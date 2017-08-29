@@ -2,7 +2,7 @@ class Promoter < ApplicationRecord
   belongs_to :user
 
   validates :user_id, :phone, :address, :description, presence: true
-  validates :phone, numericality: { only_integer: true }
+  validates :phone, numericality: { only_integer: true }, length: {minimum: 1, maximum: 10}
 
   enum status: [ :inactive, :active ]
 

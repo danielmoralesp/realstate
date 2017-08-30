@@ -11,7 +11,7 @@ class PromotersController < ApplicationController
 
 	    if @promoter.save
 	      flash[:notice] = 'Ha sido creado con exito. La administración revisara su solicitud, y pronto le dará una respuesta, este atento!'
-	      redirect_to root_path
+	      redirect_to promoter_path(@promoter)
 	    else
 	      flash[:alert] = 'Algo fallo, el promotor no ha sido creado con éxito'
 	      render :new
@@ -26,9 +26,13 @@ class PromotersController < ApplicationController
 		
 	end
 
+	def show
+		@promoter = Promoter.find(params[:id])
+	end
+
 	private
 		def promoter_params
-	      params.require(:promoter).permit(:user_id, :phone, :address, :description, :status )
+	      params.require(:promoter).permit(:user_id, :phone, :address, :description, :status, :photo )
 	    end
 
 end

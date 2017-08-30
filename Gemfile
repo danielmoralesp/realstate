@@ -40,6 +40,8 @@ gem "font-awesome-rails"
 gem 'devise'
 # images gem
 gem "paperclip", "~> 4.3"
+# annotate
+gem 'annotate'
 
 
 

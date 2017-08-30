@@ -15,6 +15,7 @@ class PromotersController < ApplicationController
 	    else
 	      flash[:alert] = 'Algo fallo, el promotor no ha sido creado con éxito'
 	      render :new
+	      
 	    end
 	end
 

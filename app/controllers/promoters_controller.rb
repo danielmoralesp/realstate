@@ -20,11 +20,19 @@ class PromotersController < ApplicationController
 	end
 
 	def edit
-		
+	    @promoter = Promoter.find(params[:id])
 	end
 
 	def update
-		
+	    @promoter = Promoter.find(params[:id])
+
+	    if @promoter.update(promoter_params)
+	      flash[:notice] = 'El promotor ha sido actualizado con éxito'
+	      redirect_to promoter_path(@promoter)
+	    else
+	      flash[:alert] = 'Algo fallo, el promoter no ha sido actualizado con éxito'
+	      render :edit
+	    end
 	end
 
 	def show

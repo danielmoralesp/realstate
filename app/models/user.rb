@@ -25,7 +25,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :promoters
+  has_one :promoter
 
   enum role: [ :user, :promoter, :admin ]
 

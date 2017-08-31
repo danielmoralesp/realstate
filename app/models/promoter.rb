@@ -17,7 +17,8 @@
 #
 
 class Promoter < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, :class_name => 'User', :foreign_key => 'user_id'
+
 
   has_attached_file :photo, styles: { medium: "265x265>", thumb: "100x100>"}
 

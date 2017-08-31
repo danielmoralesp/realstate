@@ -48,7 +48,7 @@ class PromotersController < ApplicationController
 
 	private
 		def promoter_params
-	      params.require(:promoter).permit(:user_id, :phone, :address, :description, :status, :photo )
+	      params.require(:promoter).permit(:user_id, :phone, :address, :description, :status, :photo, :city_id )
 	    end
 
 	    def is_promoter?

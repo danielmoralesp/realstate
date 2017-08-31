@@ -18,11 +18,12 @@
 
 class Promoter < ApplicationRecord
   belongs_to :user, :class_name => 'User', :foreign_key => 'user_id'
+  belongs_to :city
 
 
   has_attached_file :photo, styles: { medium: "265x265>", thumb: "100x100>"}
 
-  validates :user_id, :phone, :address, :description, :photo, presence: true
+  validates :user_id, :phone, :address, :description, :photo, :city_id, presence: true
   validates :phone, numericality: { only_integer: true }, length: {minimum: 1, maximum: 10}
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
 

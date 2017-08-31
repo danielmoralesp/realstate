@@ -20,6 +20,7 @@
                 <ul class="list-unstyled">
                   <li><a href="tel:<%= @promoter.phone %>"><i class="fa fa-phone fa-fw" aria-hidden="true"></i> Call: <%= @promoter.phone %></a></li>
                   <li><a href="#"><i class="fa fa-globe fa-fw" aria-hidden="true"></i> <%= @promoter.email %></a></li>
+                  <li>Ciudad: <%= @promoter.city.city %></li>
                 </ul>
                 <a href="#" class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#leadform">Contact <%= @promoter.name %></a> </div>
             </div>

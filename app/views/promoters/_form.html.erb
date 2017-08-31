@@ -35,8 +35,12 @@
                 </div>
               <% end %>
               <div class="form-group">
+                <%= f.label :city_id, 'Ciudad de Residencia:' %><br />
+                <%= f.collection_select :city_id, City.order(:city), :id, :city, {include_blank: true}, {autofocus: true, class: 'form-control', required: true} %>
+              </div>
+              <div class="form-group">
                 <%= f.label 'Telefono' %><br />
-                <%= f.telephone_field :phone, {autofocus: true, class: "form-control input-lg", required: true, placeholder: "Su Teléfono"} %>
+                <%= f.telephone_field :phone, {class: "form-control input-lg", required: true, placeholder: "Su Teléfono"} %>
               </div>
               <div class="form-group">
                 <%= f.label 'Dirección' %><br />
@@ -48,7 +52,7 @@
               </div>
               <div class="field form-group">
                 <%= f.label 'Foto del Perfil' %><br />
-                <%= f.file_field :photo, required: true %>
+                <%= f.file_field :photo %>
               </div>
               <button type="submit" class="btn btn-primary btn-lg">Registrarme</button>
             <% end %>

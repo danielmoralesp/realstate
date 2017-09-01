@@ -7,4 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-City.create([{ city: 'Medellin' }, { city: 'Bogota' }, { city: 'Cali' }])
+#City.create([{ city: 'Medellin' }, { city: 'Bogota' }, { city: 'Cali' }])
+Feature.create([{ name: "Semi Detached Bungalow" }, { name: "Two Double Bedrooms" }, { name: "Modern Kitchen and Bathroom" }, { name: "Integrated Kitchen Appliances" }, { name: "Bi-Folding Doors" }])

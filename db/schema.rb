@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170831010738) do
+ActiveRecord::Schema.define(version: 20170901011528) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "city"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "features", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -33,6 +39,39 @@ ActiveRecord::Schema.define(version: 20170831010738) do
     t.integer  "city_id"
     t.index ["city_id"], name: "index_promoters_on_city_id"
     t.index ["user_id"], name: "index_promoters_on_user_id"
+  end
+
+  create_table "properties", force: :cascade do |t|
+    t.integer  "promoter_id"
+    t.integer  "city_id"
+    t.integer  "feature_id"
+    t.boolean  "rent_sale"
+    t.text     "title"
+    t.integer  "price"
+    t.integer  "bedrooms"
+    t.integer  "bathrooms"
+    t.float    "area"
+    t.string   "location"
+    t.string   "address"
+    t.text     "description"
+    t.string   "property_type"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.string   "photo_2_file_name"
+    t.string   "photo_2_content_type"
+    t.integer  "photo_2_file_size"
+    t.datetime "photo_2_updated_at"
+    t.string   "photo_3_file_name"
+    t.string   "photo_3_content_type"
+    t.integer  "photo_3_file_size"
+    t.datetime "photo_3_updated_at"
+    t.index ["city_id"], name: "index_properties_on_city_id"
+    t.index ["feature_id"], name: "index_properties_on_feature_id"
+    t.index ["promoter_id"], name: "index_properties_on_promoter_id"
   end
 
   create_table "users", force: :cascade do |t|

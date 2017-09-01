@@ -2,7 +2,7 @@ class PromotersController < ApplicationController
 	before_action :authenticate_user!, except: [ :index ]
 	before_action :is_promoter?, except: [ :index, :new, :create, :update ]
   	before_filter :validate_user, only: [ :profile, :edit, :destroy ]
-	
+	before_action :is_promoter_registered?, only: [ :new ]
 
 	def new
 		@promoter = Promoter.new
@@ -66,6 +66,11 @@ class PromotersController < ApplicationController
 	      end
 	    end
 
-
+	    def is_promoter_registered?
+	    	if current_user.promoter?
+		    	flash[:alert] = 'Ya se encuentra logueado como promotor'
+		       	redirect_to profile_promoter_path(current_user.promoter)
+		    end
+	    end
 
 end

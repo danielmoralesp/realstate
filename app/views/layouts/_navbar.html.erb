@@ -51,13 +51,22 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class="signin">
-            <%= link_to "Convertirme en Promotor", new_promoter_path %>
-        </li>
+
+        <% if user_signed_in? %>
+          <% unless current_user.promoter? %>
+          <li class="signin">
+              <%= link_to "Convertirme en Promotor", new_promoter_path %>
+          </li>
+          <% end %>
+        <% else %>
+          <li class="signin">
+              <%= link_to "Convertirme en Promotor", new_promoter_path %>
+          </li>
+        <% end %>
+
         <li class="add-listing visible-md visible-lg">
           <a href="add_listing.html"><span><i class="fa fa-plus" aria-hidden="true"></i> Add listing</span></a>
         </li>
-
         <% if user_signed_in? %>
           <li class=""><%= link_to 'Salir', destroy_user_session_path, method: :delete %></li>
           <% if current_user.promoter? %>

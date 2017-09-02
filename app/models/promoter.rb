@@ -14,10 +14,12 @@
 #  photo_content_type :string
 #  photo_file_size    :integer
 #  photo_updated_at   :datetime
+#  city_id            :integer
 #
 
 class Promoter < ApplicationRecord
   has_many :properties
+  has_many :requests
 
   belongs_to :user, :class_name => 'User', :foreign_key => 'user_id'
   belongs_to :city

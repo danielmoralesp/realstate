@@ -26,6 +26,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :promoter
+  has_many :requests
 
   enum role: [ :user, :promoter, :admin ]
 

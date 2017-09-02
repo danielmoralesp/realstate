@@ -64,13 +64,16 @@
           </li>
         <% end %>
 
-        <li class="add-listing visible-md visible-lg">
-          <a href="add_listing.html"><span><i class="fa fa-plus" aria-hidden="true"></i> Add listing</span></a>
-        </li>
+        
         <% if user_signed_in? %>
           <li class=""><%= link_to 'Salir', destroy_user_session_path, method: :delete %></li>
           <% if current_user.promoter? %>
               <li class=""><%= link_to "Mi Perfil", profile_promoter_path(current_user.promoter) %></li>
+              <li class="add-listing visible-md visible-lg">
+                <%= link_to new_property_path do %>
+                  <span><i class="fa fa-plus" aria-hidden="true"></i> Add listing</span>
+                <% end %>
+              </li>
           <% end %>
         <% else %>
           <li class="signin">

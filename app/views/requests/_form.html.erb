@@ -1,0 +1,76 @@
+<%= render 'layouts/navbar' %>
+<div id="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <ol class="breadcrumb">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Account</a></li>
+          <li><a href="#">Login</a></li>
+        </ol>
+        <h1 class="page-header">Porfavor ingrese el request</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <ul class="nav nav-tabs tab-lg" role="tablist">
+          <li role="presentation" class="active">
+            <a href="register.html">
+              request
+            </a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="register">
+
+            <%= form_for @request do |f| %>
+              <% if @request.errors.any? %>
+                <div id="errors_explanation">
+                  <h2><%= pluralize(@request.errors.count, "error") %> prohibited this request from being saved:</h2>
+                  <ul>
+                    <% @request.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                    <% end %>
+                  </ul>
+                </div>
+              <% end %>
+
+              <div class="field form-group">
+                <%= f.label 'Mensaje' %><br />
+                <%= f.text_area(:message, size: '24x6', class: 'form-control input-lg', required: true) %>
+              </div>
+
+              <%#= f.hidden_field :property_id, {value: @property_id} %>
+              <%#= f.hidden_field :promoter_id, {value: @promoter_id} %>
+
+              <%= f.submit 'Hacer Request', :class => 'btn btn-primary btn-lg' %>
+            <% end %>
+
+          </div>
+        </div>
+        <div> </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render 'layouts/footer' %>
+<script type="text/javascript">
+$(function () {
+	$('[data-toggle="tooltip"]').tooltip({container: 'body'});
+	//$('[data-toggle="tooltip"]').tooltip()
+})
+</script> 
+<script type="text/javascript">
+AOS.init({
+	offset: 30
+});
+</script> 
+<script>
+var footer_height = $('#footer').outerHeight() + 30;
+if (document.getElementById('sidebar')) {
+	$(document).ready(function() {
+	  $.stickysidebarscroll("#sidebar",{offset: {top: 20, bottom: footer_height}});
+	});
+};
+</script>
+</body></html>

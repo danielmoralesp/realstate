@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170901011528) do
+ActiveRecord::Schema.define(version: 20170902001517) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "city"
@@ -72,6 +72,18 @@ ActiveRecord::Schema.define(version: 20170901011528) do
     t.index ["city_id"], name: "index_properties_on_city_id"
     t.index ["feature_id"], name: "index_properties_on_feature_id"
     t.index ["promoter_id"], name: "index_properties_on_promoter_id"
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "promoter_id"
+    t.integer  "property_id"
+    t.text     "message"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["promoter_id"], name: "index_requests_on_promoter_id"
+    t.index ["property_id"], name: "index_requests_on_property_id"
+    t.index ["user_id"], name: "index_requests_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
